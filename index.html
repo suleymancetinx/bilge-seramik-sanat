@@ -220,6 +220,122 @@ input[type=range]::-webkit-slider-runnable-track{
 /* density row */
 .dr{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
 .dv{font-size:10px;font-weight:700;color:#ffb596;min-width:28px;text-align:right}
+
+/* speed preset chips */
+.speed-preset{
+  flex:1;padding:6px 0;border-radius:8px;
+  border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.05);
+  font-size:10px;font-weight:700;color:rgba(218,193,184,.6);
+  cursor:pointer;transition:all .15s;font-family:inherit;
+}
+.speed-preset:hover{background:rgba(255,255,255,.1);color:#dac1b8}
+.speed-preset.hi{border-color:rgba(255,181,150,.4);background:rgba(160,82,45,.28);color:#ffb596}
+
+/* ════════════════════════════
+   BOTTOM FOOTER BAR
+════════════════════════════ */
+#footbar{
+  position:fixed;bottom:14px;left:50%;transform:translateX(-50%);
+  display:flex;align-items:center;gap:6px;
+  padding:7px 14px;border-radius:999px;
+  z-index:100;
+  box-shadow:0 4px 20px rgba(0,0,0,.55);
+  white-space:nowrap;
+}
+#footbar a{display:flex;align-items:center;gap:7px;text-decoration:none;
+  color:rgba(218,193,184,.7);transition:color .15s;font-size:13px;font-weight:600}
+#footbar a:hover{color:#ffb596}
+.ig-logo{width:22px;height:22px;flex-shrink:0}
+.fsep{width:1px;height:18px;background:rgba(255,255,255,.1);flex-shrink:0}
+.fib{
+  width:36px;height:36px;border-radius:50%;display:flex;align-items:center;
+  justify-content:center;cursor:pointer;border:none;background:transparent;
+  color:rgba(218,193,184,.55);transition:all .15s;position:relative;
+}
+.fib:hover{background:rgba(255,255,255,.08);color:#dac1b8}
+.fib .mi{font-size:20px}
+
+/* ── Share popover (anchored to footer, opens upward) ── */
+#popShare{
+  position:fixed;
+  bottom:70px;
+  left:50%;transform:translateX(-50%);
+  min-width:240px;
+  border-radius:16px;padding:14px;
+  z-index:101;
+  display:none;flex-direction:column;gap:10px;
+  box-shadow:0 -4px 32px rgba(0,0,0,.65);
+}
+#popShare.open{display:flex}
+.share-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.shbtn{
+  display:flex;flex-direction:column;align-items:center;gap:4px;
+  padding:10px 4px;border-radius:12px;cursor:pointer;
+  border:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.05);
+  text-decoration:none;color:#dac1b8;transition:all .15s;
+}
+.shbtn:hover{background:rgba(255,255,255,.12);transform:translateY(-2px)}
+.shbtn svg{width:22px;height:22px;flex-shrink:0}
+.shbtn span{font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
+  color:rgba(218,193,184,.55)}
+
+/* ── Camera modal overlay ── */
+#camOverlay{
+  position:fixed;inset:0;z-index:200;
+  background:rgba(0,0,0,.72);
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  display:none;align-items:center;justify-content:center;padding:20px;
+}
+#camOverlay.open{display:flex}
+#camModal{
+  background:rgba(18,14,11,.95);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:24px;
+  padding:28px 24px 24px;
+  max-width:420px;width:100%;
+  display:flex;flex-direction:column;gap:18px;
+  box-shadow:0 16px 48px rgba(0,0,0,.7);
+  position:relative;
+}
+.cam-close{
+  position:absolute;top:14px;right:14px;
+  background:rgba(255,255,255,.07);border:none;border-radius:50%;
+  width:32px;height:32px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  color:rgba(218,193,184,.6);transition:all .15s;
+}
+.cam-close:hover{background:rgba(255,255,255,.14);color:#dac1b8}
+.cam-title{font-size:18px;font-weight:700;color:#ffb596;line-height:1.3}
+.cam-steps{display:flex;flex-direction:column;gap:12px}
+.cam-step{display:flex;align-items:flex-start;gap:12px}
+.cam-num{
+  width:28px;height:28px;border-radius:50%;flex-shrink:0;
+  background:rgba(160,82,45,.6);border:1px solid rgba(255,181,150,.4);
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:700;color:#ffb596;
+}
+.cam-step p{font-size:13px;line-height:1.5;color:rgba(218,193,184,.8);padding-top:4px}
+.cam-divider{height:1px;background:rgba(255,255,255,.07)}
+.cam-contact{
+  display:flex;flex-direction:column;gap:8px;
+  background:rgba(160,82,45,.12);border:1px solid rgba(255,181,150,.15);
+  border-radius:14px;padding:14px;
+}
+.cam-contact p{font-size:12px;color:rgba(218,193,184,.65);line-height:1.5}
+.cam-ig{
+  display:flex;align-items:center;gap:8px;
+  text-decoration:none;color:#ffb596;font-size:13px;font-weight:600;
+  transition:opacity .15s;
+}
+.cam-ig:hover{opacity:.8}
+.cam-screenshot-btn{
+  width:100%;padding:12px;border-radius:12px;border:none;cursor:pointer;
+  background:linear-gradient(135deg,rgba(160,82,45,.8),rgba(255,181,150,.6));
+  color:#fff;font-size:13px;font-weight:700;letter-spacing:.05em;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  transition:all .15s;
+}
+.cam-screenshot-btn:hover{filter:brightness(1.1);transform:translateY(-1px)}
 </style>
 </head>
 <body>
@@ -257,9 +373,12 @@ input[type=range]::-webkit-slider-runnable-track{
     <span class="mi">auto_awesome</span>
   </button>
 
-  <div class="tsep"></div>
+  <!-- Speed control trigger -->
+  <button class="ib" id="btnSpeed" title="Döndürme Hızı">
+    <span class="mi">speed</span>
+  </button>
 
-  <!-- Undo -->
+  <div class="tsep"></div>
   <button class="ib" id="btnUndo" title="Geri Al">
     <span class="mi">undo</span>
   </button>
@@ -340,6 +459,27 @@ input[type=range]::-webkit-slider-runnable-track{
   <button id="gSilver" class="gb" style="background:linear-gradient(135deg,#999,#e0e0e0);color:#222">◈ Silver</button>
   <button id="gMatte"  class="gb" style="background:rgba(255,255,255,.9);color:#222">○ Matte White</button>
   <p class="gnote">Kaplama üzerine fırça ile boyayabilirsin.</p>
+</div>
+
+<!-- Speed popover -->
+<div class="pop g pop-c" id="popSpeed">
+  <span class="sl">Döndürme Hızı</span>
+  <div style="display:flex;align-items:center;gap:10px">
+    <span class="mi" style="font-size:16px;color:rgba(218,193,184,.4)">remove</span>
+    <input type="range" id="speedSlider" min="0" max="100" value="27" style="flex:1"/>
+    <span class="mi" style="font-size:16px;color:rgba(218,193,184,.4)">add</span>
+  </div>
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-top:-4px">
+    <span style="font-size:10px;color:rgba(218,193,184,.4)">Dur</span>
+    <span id="speedLabel" style="font-size:11px;font-weight:700;color:#ffb596">Normal</span>
+    <span style="font-size:10px;color:rgba(218,193,184,.4)">Hızlı</span>
+  </div>
+  <div style="display:flex;gap:5px;margin-top:2px">
+    <button class="speed-preset" data-spd="0"  >Dur</button>
+    <button class="speed-preset" data-spd="15" >Yavaş</button>
+    <button class="speed-preset hi" data-spd="27">Normal</button>
+    <button class="speed-preset" data-spd="60" >Hızlı</button>
+  </div>
 </div>
 
 
@@ -436,8 +576,160 @@ input[type=range]::-webkit-slider-runnable-track{
 
 
 <!-- ══════════════════════════════════════
-     THREE.JS + PAINT ENGINE
+     BOTTOM FOOTER BAR
 ══════════════════════════════════════ -->
+<div id="footbar" class="g">
+
+  <!-- Instagram link -->
+  <a href="https://www.instagram.com/bilge_seramik_sanat/" target="_blank" rel="noopener">
+    <!-- Instagram SVG logo -->
+    <svg class="ig-logo" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="ig-g" cx="30%" cy="107%" r="150%">
+          <stop offset="0%" stop-color="#fdf497"/>
+          <stop offset="5%" stop-color="#fdf497"/>
+          <stop offset="45%" stop-color="#fd5949"/>
+          <stop offset="60%" stop-color="#d6249f"/>
+          <stop offset="90%" stop-color="#285AEB"/>
+        </radialGradient>
+      </defs>
+      <rect width="24" height="24" rx="5.5" fill="url(#ig-g)"/>
+      <rect x="2.5" y="2.5" width="19" height="19" rx="4" stroke="white" stroke-width="1.5" fill="none"/>
+      <circle cx="12" cy="12" r="4" stroke="white" stroke-width="1.5" fill="none"/>
+      <circle cx="17.5" cy="6.5" r="1" fill="white"/>
+    </svg>
+    @bilge_seramik_sanat
+  </a>
+
+  <div class="fsep"></div>
+
+  <!-- Share button -->
+  <button class="fib" id="btnShare" title="Paylaş">
+    <span class="mi">share</span>
+  </button>
+
+  <!-- Camera / order button -->
+  <button class="fib" id="btnCamera" title="Tasarımını Gönder">
+    📷
+  </button>
+
+</div>
+
+
+<!-- ══════════════════════════════════════
+     SHARE POPOVER (opens upward)
+══════════════════════════════════════ -->
+<div class="g" id="popShare">
+  <span class="sl">Tasarımını Paylaş</span>
+  <div class="share-grid">
+
+    <!-- Facebook -->
+    <a class="shbtn" id="sh-fb" href="#" target="_blank" rel="noopener" title="Facebook">
+      <svg viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.8-4.7 4.54-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.5c-1.49 0-1.95.93-1.95 1.88v2.27h3.32l-.53 3.49h-2.79V24C19.61 23.1 24 18.1 24 12.07z"/></svg>
+      <span>Facebook</span>
+    </a>
+
+    <!-- X / Twitter -->
+    <a class="shbtn" id="sh-x" href="#" target="_blank" rel="noopener" title="X (Twitter)">
+      <svg viewBox="0 0 24 24" fill="#e5e2e1"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      <span>X</span>
+    </a>
+
+    <!-- TikTok -->
+    <a class="shbtn" id="sh-tt" href="#" target="_blank" rel="noopener" title="TikTok">
+      <svg viewBox="0 0 24 24" fill="#e5e2e1"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.27 8.27 0 004.84 1.55V6.79a4.85 4.85 0 01-1.07-.1z"/></svg>
+      <span>TikTok</span>
+    </a>
+
+    <!-- LinkedIn -->
+    <a class="shbtn" id="sh-li" href="#" target="_blank" rel="noopener" title="LinkedIn">
+      <svg viewBox="0 0 24 24" fill="#0A66C2"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05a3.74 3.74 0 013.37-1.85c3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 110-4.14 2.07 2.07 0 010 4.14zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+      <span>LinkedIn</span>
+    </a>
+
+    <!-- WhatsApp -->
+    <a class="shbtn" id="sh-wa" href="#" target="_blank" rel="noopener" title="WhatsApp">
+      <svg viewBox="0 0 24 24" fill="#25D366"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.04-.97-.27-.1-.47-.15-.67.15s-.77.97-.94 1.17c-.17.2-.35.22-.65.07a8.17 8.17 0 01-2.4-1.48 9.03 9.03 0 01-1.66-2.07c-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.79.37s-1.04 1.02-1.04 2.48 1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49a17.1 17.1 0 001.7.63c.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.3.17-1.42-.07-.12-.27-.19-.57-.34zM12.05 21.8h-.02a9.87 9.87 0 01-5.02-1.38l-.36-.21-3.74.98 1-3.65-.23-.37a9.86 9.86 0 01-1.51-5.27C2.17 6.45 6.63 2 12.07 2a9.83 9.83 0 016.97 2.89 9.8 9.8 0 012.89 6.96c-.002 5.45-4.44 9.95-9.88 9.95zm8.41-18.2A11.81 11.81 0 0012.05 0C5.44 0 .07 5.37.07 11.97c0 2.11.55 4.16 1.6 5.98L0 24l6.2-1.63a12 12 0 005.84 1.49h.01C18.65 23.86 24 18.49 24 11.9a11.83 11.83 0 00-3.54-8.3z"/></svg>
+      <span>WhatsApp</span>
+    </a>
+
+    <!-- E-posta -->
+    <a class="shbtn" id="sh-em" href="#" title="E-Posta">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#ffb596" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg>
+      <span>E-Posta</span>
+    </a>
+
+    <!-- Pinterest -->
+    <a class="shbtn" id="sh-pi" href="#" target="_blank" rel="noopener" title="Pinterest">
+      <svg viewBox="0 0 24 24" fill="#E60023"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.08 3.16 9.44 7.63 11.2-.1-.96-.2-2.44.04-3.49.22-.95 1.47-6.24 1.47-6.24s-.37-.75-.37-1.86c0-1.74 1.01-3.05 2.27-3.05 1.07 0 1.59.8 1.59 1.77 0 1.08-.69 2.69-1.04 4.19-.3 1.25.62 2.27 1.84 2.27 2.2 0 3.9-2.33 3.9-5.68 0-2.97-2.13-5.05-5.18-5.05-3.53 0-5.6 2.64-5.6 5.38 0 1.07.41 2.21.92 2.84.1.12.11.23.08.35-.09.38-.3 1.25-.34 1.43-.05.23-.18.28-.4.17-1.5-.7-2.43-2.88-2.43-4.64 0-3.78 2.75-7.25 7.93-7.25 4.16 0 7.4 2.97 7.4 6.93 0 4.13-2.6 7.45-6.22 7.45-1.21 0-2.36-.63-2.75-1.37l-.75 2.79c-.27 1.04-1 2.34-1.49 3.13.98.3 2.03.47 3.1.47 6.63 0 12-5.37 12-12S18.63 0 12 0z"/></svg>
+      <span>Pinterest</span>
+    </a>
+
+    <!-- Instagram -->
+    <a class="shbtn" href="https://www.instagram.com/bilge_seramik_sanat/" target="_blank" rel="noopener" title="Instagram">
+      <svg viewBox="0 0 24 24" fill="none">
+        <defs><radialGradient id="ig-s" cx="30%" cy="107%" r="150%"><stop offset="0%" stop-color="#fdf497"/><stop offset="45%" stop-color="#fd5949"/><stop offset="90%" stop-color="#285AEB"/></radialGradient></defs>
+        <rect width="24" height="24" rx="5.5" fill="url(#ig-s)"/>
+        <rect x="2.5" y="2.5" width="19" height="19" rx="4" stroke="white" stroke-width="1.5" fill="none"/>
+        <circle cx="12" cy="12" r="4" stroke="white" stroke-width="1.5" fill="none"/>
+        <circle cx="17.5" cy="6.5" r="1" fill="white"/>
+      </svg>
+      <span>Instagram</span>
+    </a>
+
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     CAMERA / ORDER MODAL
+══════════════════════════════════════ -->
+<div id="camOverlay">
+  <div id="camModal">
+    <button class="cam-close" id="camClose">
+      <span class="mi" style="font-size:18px">close</span>
+    </button>
+
+    <div class="cam-title">📷 Tasarımını Gerçeğe Dönüştür!</div>
+
+    <div class="cam-steps">
+      <div class="cam-step">
+        <div class="cam-num">1</div>
+        <p>Bu sayfada istediğin çömlek modelini seç. Renk, desen ve fırça araçlarıyla özgürce boyayıp süsle.</p>
+      </div>
+      <div class="cam-step">
+        <div class="cam-num">2</div>
+        <p>Tasarımından memnun olduğunda aşağıdaki butona bas. Ekran görüntüsü cihazına kaydedilecek.</p>
+      </div>
+      <div class="cam-step">
+        <div class="cam-num">3</div>
+        <p>Kaydedilen görseli Instagram veya WhatsApp üzerinden bize gönder; biz de senin için hazırlayıp kapına kadar gönderelim! 🎁</p>
+      </div>
+    </div>
+
+    <div class="cam-divider"></div>
+
+    <div class="cam-contact">
+      <p>Tasarımını şuraya gönder:</p>
+      <a class="cam-ig" href="https://www.instagram.com/bilge_seramik_sanat/" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <defs><radialGradient id="ig-m" cx="30%" cy="107%" r="150%"><stop offset="0%" stop-color="#fdf497"/><stop offset="45%" stop-color="#fd5949"/><stop offset="90%" stop-color="#285AEB"/></radialGradient></defs>
+          <rect width="24" height="24" rx="5.5" fill="url(#ig-m)"/>
+          <rect x="2.5" y="2.5" width="19" height="19" rx="4" stroke="white" stroke-width="1.5" fill="none"/>
+          <circle cx="12" cy="12" r="4" stroke="white" stroke-width="1.5" fill="none"/>
+          <circle cx="17.5" cy="6.5" r="1" fill="white"/>
+        </svg>
+        @bilge_seramik_sanat
+      </a>
+    </div>
+
+    <button class="cam-screenshot-btn" id="camShot">
+      <span class="mi" style="font-size:18px;color:#fff">photo_camera</span>
+      Ekran Görüntüsü Al
+    </button>
+
+  </div>
+</div>
 <script type="module">
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.165.0/build/three.module.js';
 
@@ -448,7 +740,7 @@ const c3d = document.getElementById('c3d');
 function W(){ return window.innerWidth  }
 function H(){ return window.innerHeight }
 
-const renderer = new THREE.WebGLRenderer({ canvas: c3d, antialias: true });
+const renderer = new THREE.WebGLRenderer({ canvas: c3d, antialias: true, preserveDrawingBuffer: true });
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 renderer.setSize(W(), H());   // sets drawBuffer size
 c3d.style.width  = W() + 'px';   // sets CSS display size
@@ -519,6 +811,51 @@ ctx.fillRect(0,0,1024,1024);
 const tex = new THREE.CanvasTexture(pc);
 tex.anisotropy = renderer.capabilities.getMaxAnisotropy();
 
+// ── CLAY SURFACE NOISE (bump + roughness map) ────────────────────
+// Procedurally generated 512px grayscale texture.
+// Gives the bare pottery organic micro-blemishes, grit and throwing-wheel
+// streaks so the viewer can immediately tell the vessel is rotating.
+function makeClaySurface() {
+  const oc = document.createElement('canvas');
+  oc.width = oc.height = 512;
+  const c = oc.getContext('2d');
+
+  // neutral mid-gray base
+  c.fillStyle = '#878787'; c.fillRect(0,0,512,512);
+
+  // organic blotches — different radii & brightness
+  for (let i=0; i<300; i++) {
+    const x=Math.random()*512, y=Math.random()*512, r=4+Math.random()*20;
+    const v=100+Math.floor(Math.random()*60);
+    c.globalAlpha = 0.05+Math.random()*0.13;
+    const g=c.createRadialGradient(x,y,0,x,y,r);
+    g.addColorStop(0,`rgb(${v},${v},${v})`); g.addColorStop(1,'rgba(135,135,135,0)');
+    c.fillStyle=g; c.beginPath(); c.arc(x,y,r,0,Math.PI*2); c.fill();
+  }
+
+  // fine grit specks
+  for (let i=0; i<700; i++) {
+    const v=Math.random()>.5?65:190;
+    c.globalAlpha=0.07+Math.random()*0.16;
+    c.fillStyle=`rgb(${v},${v},${v})`;
+    c.fillRect(Math.random()*512, Math.random()*512, 1+Math.random()*2, 1+Math.random()*2);
+  }
+
+  // throwing-wheel horizontal streaks (lathe lines)
+  c.globalAlpha=0.06;
+  for (let i=0; i<28; i++) {
+    const y=Math.random()*512, h=.4+Math.random()*1.8;
+    c.fillStyle=Math.random()>.5?'#444':'#ccc';
+    c.fillRect(0,y,512,h);
+  }
+
+  c.globalAlpha=1;
+  const t=new THREE.CanvasTexture(oc);
+  t.anisotropy=renderer.capabilities.getMaxAnisotropy();
+  return t;
+}
+const clayBump = makeClaySurface();
+
 // ─── 6. CATMULL-ROM SPLINE ──────────────────────────────────────
 // Smooths sparse control points into 200-sample silhouette → no visible facets
 function catmull(pts, n){
@@ -549,7 +886,15 @@ function buildGeo(i){
   g.computeVertexNormals(); return g;
 }
 
-const pmat = new THREE.MeshStandardMaterial({map:tex,roughness:.55,metalness:.05,side:THREE.FrontSide});
+const pmat = new THREE.MeshStandardMaterial({
+  map: tex,
+  roughness: .58,
+  metalness: .05,
+  roughnessMap: clayBump,   // micro surface variation → visible grit
+  bumpMap:      clayBump,   // subtle physical bumps so light catches the texture
+  bumpScale:    0.018,      // very gentle — real clay not a rock wall
+  side: THREE.FrontSide
+});
 const pot  = new THREE.Mesh(buildGeo(0), pmat);
 pot.position.y=.02; pot.castShadow=pot.receiveShadow=true;
 
@@ -566,6 +911,7 @@ scene.add(pivot);
 // ─── 8. APP STATE ───────────────────────────────────────────────
 let spinning=true, painting=false;
 let color='#E2725B', bsz=14, tool='brush', pattern='none', density=50, lastUV=null;
+let rotSpeed = 0.42;   // radians/second — controlled by speed slider
 const undo=[];
 function pushUndo(){ undo.push(ctx.getImageData(0,0,1024,1024)); if(undo.length>20)undo.shift(); }
 
@@ -649,7 +995,7 @@ const clk=new THREE.Clock();
 (function loop(){
   requestAnimationFrame(loop);
   const dt=clk.getDelta();
-  if(spinning){ pivot.rotation.y+=dt*.42; tt.rotation.y+=dt*.42; }
+  if(spinning && rotSpeed>0){ pivot.rotation.y+=dt*rotSpeed; tt.rotation.y+=dt*rotSpeed; }
   renderer.render(scene,camera);
 })();
 
@@ -663,10 +1009,10 @@ function restoreClay(){
 // ─── 14. UI WIRING ──────────────────────────────────────────────
 
 // Popover system — popovers are FIXED elements, no clipping issue
-const POPS={ tools:'popTools', colors:'popColors', glaze:'popGlaze' };
+const POPS={ tools:'popTools', colors:'popColors', glaze:'popGlaze', speed:'popSpeed' };
 function closeAll(){ Object.values(POPS).forEach(id=>document.getElementById(id).classList.remove('open')); }
 
-['Tools','Colors','Glaze'].forEach(name=>{
+['Tools','Colors','Glaze','Speed'].forEach(name=>{
   document.getElementById('btn'+name).addEventListener('click', e=>{
     e.stopPropagation();
     const pid=POPS[name.toLowerCase()];
@@ -797,6 +1143,123 @@ document.querySelectorAll('.pb').forEach(b=>{
 // Density
 document.getElementById('pdens').addEventListener('input',e=>{
   density=+e.target.value; document.getElementById('dlabel').textContent=e.target.value+'%';
+});
+
+// ─── SPEED CONTROL ──────────────────────────────────────────────
+// slider value 0–100 maps to 0–2.0 rad/s (value 27 ≈ normal 0.42 rad/s)
+function sliderToSpeed(v){ return (v/100) * 2.0; }
+function speedLabel(v){
+  if (v==0)  return 'Dur';
+  if (v<=10) return 'Çok Yavaş';
+  if (v<=22) return 'Yavaş';
+  if (v<=35) return 'Normal';
+  if (v<=60) return 'Hızlı';
+  return 'Çok Hızlı';
+}
+function applySpeed(val){
+  rotSpeed = sliderToSpeed(val);
+  document.getElementById('speedSlider').value = val;
+  document.getElementById('speedLabel').textContent = speedLabel(val);
+  // keep spinning flag in sync — 0 = effectively stopped
+  if (rotSpeed > 0 && !spinning) {
+    spinning = true;
+    document.querySelector('#btnPlay .mi').textContent = 'pause';
+    document.getElementById('btnPlay').classList.add('hi');
+  }
+  // highlight matching preset
+  document.querySelectorAll('.speed-preset').forEach(b=>{
+    b.classList.toggle('hi', +b.dataset.spd === +val);
+  });
+}
+
+document.getElementById('speedSlider').addEventListener('input', e=>{
+  applySpeed(+e.target.value);
+});
+
+document.querySelectorAll('.speed-preset').forEach(b=>{
+  b.addEventListener('click', ()=> applySpeed(+b.dataset.spd));
+});
+
+// ─── 15. SHARE POPOVER ──────────────────────────────────────────
+const popShare = document.getElementById('popShare');
+document.getElementById('btnShare').addEventListener('click', e=>{
+  e.stopPropagation();
+  popShare.classList.toggle('open');
+});
+document.addEventListener('click', e=>{
+  if (!e.target.closest('#popShare') && !e.target.closest('#btnShare'))
+    popShare.classList.remove('open');
+});
+
+// Build share URLs — we share the Instagram page as the "design studio" link
+const SHARE_URL   = encodeURIComponent('https://www.instagram.com/bilge_seramik_sanat/');
+const SHARE_TITLE = encodeURIComponent('Çömleğimi Bilge Seramik Sanat\'ta tasarladım! 🎨🏺');
+const SHARE_TAGS  = encodeURIComponent('seramik,çömlek,pottery,bilgeseramik');
+
+document.getElementById('sh-fb').href =
+  `https://www.facebook.com/sharer/sharer.php?u=${SHARE_URL}`;
+document.getElementById('sh-x').href =
+  `https://x.com/intent/tweet?text=${SHARE_TITLE}&url=${SHARE_URL}&hashtags=${SHARE_TAGS}`;
+document.getElementById('sh-tt').href =
+  `https://www.tiktok.com/@bilge_seramik_sanat`;
+document.getElementById('sh-li').href =
+  `https://www.linkedin.com/sharing/share-offsite/?url=${SHARE_URL}`;
+document.getElementById('sh-wa').href =
+  `https://wa.me/?text=${SHARE_TITLE}%20${SHARE_URL}`;
+document.getElementById('sh-em').href =
+  `mailto:?subject=${encodeURIComponent('Çömlek Tasarımım - Bilge Seramik Sanat')}&body=${SHARE_TITLE}%0A${SHARE_URL}`;
+document.getElementById('sh-pi').href =
+  `https://pinterest.com/pin/create/button/?url=${SHARE_URL}&description=${SHARE_TITLE}`;
+
+// ─── 16. CAMERA MODAL ───────────────────────────────────────────
+const camOverlay = document.getElementById('camOverlay');
+document.getElementById('btnCamera').addEventListener('click', ()=>{
+  camOverlay.classList.add('open');
+  // close all other popovers when opening modal
+  closeAll(); popShare.classList.remove('open');
+});
+document.getElementById('camClose').addEventListener('click', ()=>{
+  camOverlay.classList.remove('open');
+});
+camOverlay.addEventListener('click', e=>{
+  if (e.target === camOverlay) camOverlay.classList.remove('open');
+});
+
+// Screenshot button — uses html2canvas if available, falls back to native share/download
+document.getElementById('camShot').addEventListener('click', async ()=>{
+  try {
+    // Render the Three.js scene to get a data URL
+    // Force one render frame to ensure canvas is current
+    renderer.render(scene, camera);
+    const dataURL = c3d.toDataURL('image/png');
+
+    // Try Web Share API (mobile-friendly)
+    if (navigator.share && navigator.canShare) {
+      const res   = await fetch(dataURL);
+      const blob  = await res.blob();
+      const file  = new File([blob], 'bilge-seramik-tasarim.png', {type:'image/png'});
+      if (navigator.canShare({files:[file]})) {
+        await navigator.share({
+          title: 'Çömlek Tasarımım',
+          text:  'Bilge Seramik Sanat\'ta tasarladım! @bilge_seramik_sanat',
+          files: [file]
+        });
+        return;
+      }
+    }
+
+    // Fallback: direct download
+    const a  = document.createElement('a');
+    a.href   = dataURL;
+    a.download = 'bilge-seramik-tasarim.png';
+    a.click();
+  } catch(err) {
+    console.warn('Screenshot error:', err);
+    // Last resort: open image in new tab
+    const w = window.open();
+    renderer.render(scene, camera);
+    w.document.write(`<img src="${c3d.toDataURL()}" style="max-width:100%"/>`);
+  }
 });
 
 </script>
